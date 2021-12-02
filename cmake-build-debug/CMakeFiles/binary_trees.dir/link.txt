@@ -1,1 +1,0 @@
-/usr/bin/cc -g CMakeFiles/binary_trees.dir/0-binary_tree_node.c.o CMakeFiles/binary_trees.dir/1-binary_tree_insert_left.c.o CMakeFiles/binary_trees.dir/1-main.c.o CMakeFiles/binary_trees.dir/binary_tree_print.c.o -o binary_trees 
