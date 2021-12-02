@@ -3,24 +3,6 @@
 #include <stdio.h>
 
 /**
-* binary_tree_is_full - function that checks if a binary tree is full
-* @tree: pointer to the root node of the tree to check.
-* Return: 1 if is full, 0 if not or also 0 if tree is NULL.
-*/
-
-int binary_tree_is_full(const binary_tree_t *tree)
-{
-	if (!tree)
-		return (0);
-
-	if (!tree->right && !tree->left)
-		return (1);
-
-	return ((binary_tree_is_full(tree->left) == 1) &&
-	(binary_tree_is_full(tree->right) == 1) ? 1 : 0);
-}
-
-/**
 * binary_tree_height- function that measures the height of a binary tree
 * @tree: pointer to the root node of the tree to measure the height.
 * Return: height or 0 if tree is NULL.
@@ -70,8 +52,9 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 	if (!tree)
 		return (0);
 
-	if ((binary_tree_is_full(tree) == 1) &&
-	(binary_tree_balance(tree) == 0))
-		return (1);
+	if (binary_tree_balance(tree) == 0)
+		if (binary_tree_is_perfect(tree->left) ==
+		binary_tree_is_perfect(tree->right))
+			return (1);
 	return (0);
 }
